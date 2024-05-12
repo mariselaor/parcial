@@ -13,7 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "allowedCommonJsDependencies": ["pdfmake"],
+=======
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -32,7 +35,11 @@
                 "output": "./svg"
               }
             ],
+<<<<<<< HEAD
             "styles": ["src/theme/variables.scss", "src/global.scss"],
+=======
+            "styles": ["src/global.scss", "src/theme/variables.scss"],
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
             "scripts": []
           },
           "configurations": {
@@ -75,10 +82,17 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "browserTarget": "app:build:production"
             },
             "development": {
               "browserTarget": "app:build:development"
+=======
+              "buildTarget": "app:build:production"
+            },
+            "development": {
+              "buildTarget": "app:build:development"
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
             },
             "ci": {
               "progress": false
@@ -89,7 +103,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "app:build"
+=======
+            "buildTarget": "app:build"
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
           }
         },
         "test": {
@@ -112,7 +130,11 @@
                 "output": "./svg"
               }
             ],
+<<<<<<< HEAD
             "styles": ["src/theme/variables.scss", "src/global.scss"],
+=======
+            "styles": ["src/global.scss", "src/theme/variables.scss"],
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
             "scripts": []
           },
           "configurations": {

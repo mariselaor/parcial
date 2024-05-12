@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
 
 @Component({
   selector: 'app-main',
@@ -11,6 +15,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class MainPage implements OnInit {
 
+<<<<<<< HEAD
   initialPages = [
     { title: 'Constancias', url: '/main/constancias', icon:'person-outline'},
    { title: 'Estado de Constancias', url: '/main/estados', icon:'star-half-outline'},
@@ -55,4 +60,11 @@ export class MainPage implements OnInit {
   signOut(){
     this.firebaseSvc.signOut();
   }
+=======
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
 }

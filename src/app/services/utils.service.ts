@@ -48,22 +48,22 @@ async presentAlert(opts?: AlertOptions){
     toast.present();
   }
 
-  //========== Enruta a pagina disponible =============
+  //============ Enruta a culaquier pagina disponible ===================
   routerLink(url: string) {
     return this.router.navigateByUrl(url);
   }
 
-  //========= Guardar un elemento ============
+  //============ Guardar un elemento en localstorage ===================
   saveInLocalStorage(key: string, value: any){
     return localStorage.setItem(key, JSON.stringify(value));
   }
 
-  //======= Obtiener un elemento ========
+  //============ Obtiene un elemento en localstorage ===================
   getFromLocalStorage(key: string){
     return JSON.parse(localStorage.getItem(key));
   }
 
-  //======= MODAL ==========
+  //============ MODAL ===================
 
   async presentModal(opts: ModalOptions) {
     const modal = await this.modalCtrl.create(opts);
@@ -77,5 +77,5 @@ async presentAlert(opts?: AlertOptions){
 
   dissmisModal(data?: any){
     return this.modalCtrl.dismiss(data);
-  }
+  }
 }

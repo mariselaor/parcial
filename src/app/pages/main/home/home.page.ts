@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit, inject } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
@@ -10,6 +11,12 @@ import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { AlertController } from '@ionic/angular';
 
+=======
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AppUserModalComponent } from 'src/app/shared/components/app-user-modal/app-user-modal.component';
+import { UserService } from 'src/app/services/user.service'; // Asegúrate de importar el servicio UserService
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
 
 @Component({
   selector: 'app-home',
@@ -17,6 +24,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+<<<<<<< HEAD
 
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
@@ -286,4 +294,35 @@ async removeCantidad(product: Product) {
   await alert.present();
 }
 
+=======
+  users: any[] = []; // Inicializa el array de usuarios
+
+  constructor(private modalController: ModalController, private userService: UserService) {}
+
+  ngOnInit() {
+    this.loadUsers(); // Cargar usuarios al inicializar la página
+  }
+
+  async openAddUserModal() {
+    const modal = await this.modalController.create({
+      component: AppUserModalComponent
+    });
+
+    modal.onDidDismiss().then((result) => {
+      if (result && result.data) {
+        // Agrega el nuevo usuario al array de usuarios
+        this.users.push(result.data);
+      }
+    });
+
+    return await modal.present();
+  }
+
+  loadUsers() {
+    // Suscribirse al observable para obtener los usuarios
+    this.userService.getUsers().subscribe((data: any[]) => {
+      this.users = data;
+    });
+  }
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
 }

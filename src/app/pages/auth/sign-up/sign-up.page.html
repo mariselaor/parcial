@@ -2,6 +2,7 @@
 <ion-content>
 
   <div class="d-flex-center">
+<<<<<<< HEAD
     <form [formGroup]="form" class="auht-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
 
       <app-logo></app-logo>
@@ -9,12 +10,22 @@
     <!--============== Nombre ================-->
 
       <app-custom-input 
+=======
+    
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+  
+      <app-logo></app-logo>
+
+      <!-- ========== Name ========== -->
+      <app-custom-input
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
       autocomplete="name"
       icon="person-outline"
       [control]="form.controls.name"
       type="text"
       label="Nombre"
       ></app-custom-input>
+<<<<<<< HEAD
 
       <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
         <div *ngIf="form.controls.name.errors?.['required']">El nombre es requerido</div>
@@ -24,12 +35,23 @@
       <!--============= Email ==============-->
 
       <app-custom-input 
+=======
+  
+      <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+        <div *ngIf="form.controls.name.errors?.['required']">Este campo es requerido</div>
+        <div *ngIf="form.controls.name.errors?.['minlenght']">El nombre debe tener al menos 4 caracteres</div>
+      </div>
+
+      <!-- ========== Email ========== -->
+      <app-custom-input
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
       autocomplete="email"
       icon="mail-outline"
       [control]="form.controls.email"
       type="email"
       label="Correo"
       ></app-custom-input>
+<<<<<<< HEAD
 
       <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
         <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
@@ -41,6 +63,18 @@
       <app-custom-input 
       icon="lock-closed-outline"
       [control]="form.controls.password"
+=======
+  
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+        <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
+      </div>
+
+      <!-- ========== password ========== -->
+      <app-custom-input
+      [control]="form.controls.password"
+      icon="lock-closed-outline"
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
       type="password"
       label="Contraseña"
       ></app-custom-input>
@@ -49,6 +83,7 @@
         <div *ngIf="form.controls.password.errors?.['required']">La contraseña es requerida</div>
       </div>
 
+<<<<<<< HEAD
       <!--============ Tipo de Usuario ===============-->
       <app-custom-select
       [control]="form.controls.tipo_u"
@@ -64,4 +99,29 @@
   </div>
   
   
+=======
+      <!-- ========== Rol ========== -->
+      <ion-radio-group formControlName="rol">
+        <ion-item>
+          <ion-radio value="Administrador">Administrador</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="Usuario">Usuario</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <div class="validators" *ngIf="form.controls.rol.errors && form.controls.rol.touched">
+        <div *ngIf="form.controls.rol.errors?.['required']">El rol es requerido</div>
+      </div>      
+
+      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+        Regístrate
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+      </ion-button>
+  
+    </form>
+    
+  </div>
+
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
 </ion-content>

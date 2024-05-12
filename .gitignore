@@ -57,6 +57,11 @@ yarn-error.log
 /.angular
 /.angular/cache
 .sass-cache/
+<<<<<<< HEAD
+=======
+/.nx
+/.nx/cache
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
 /connect.lock
 /coverage
 /libpeerconnection.log

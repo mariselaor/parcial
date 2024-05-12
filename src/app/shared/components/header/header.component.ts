@@ -7,7 +7,11 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  implements OnInit {
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
   @Input() title!: string;
   @Input() backButton!: string;
   @Input() isModal!: boolean;
@@ -17,8 +21,13 @@ export class HeaderComponent  implements OnInit {
 
   ngOnInit() {}
 
+<<<<<<< HEAD
   dismissModal(){
     this.utilsSvc.dissmisModal();
+=======
+  dismissModal() {
+    this.utilsSvc.dismissModal();
+>>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
   }
 
 }
