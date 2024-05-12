@@ -1,11 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "productos",
-=======
-  "name": "parcial3",
->>>>>>> ae0b210b2dd2d32d6efc622b5fcf0a8248d76ed1
-  "integrations": {
-    "capacitor": {}
-  },
+  "name": "parcial",
+  "integrations": {},
   "type": "angular"
 }

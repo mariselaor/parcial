@@ -77,5 +77,5 @@ async presentAlert(opts?: AlertOptions){
 
   dissmisModal(data?: any){
     return this.modalCtrl.dismiss(data);
-  }
+  }
 }
