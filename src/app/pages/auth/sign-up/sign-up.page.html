@@ -1,0 +1,67 @@
+<app-header backButton="/auth" title="Registro"></app-header>
+<ion-content>
+
+  <div class="d-flex-center">
+    <form [formGroup]="form" class="auht-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+      <app-logo></app-logo>
+
+    <!--============== Nombre ================-->
+
+      <app-custom-input 
+      autocomplete="name"
+      icon="person-outline"
+      [control]="form.controls.name"
+      type="text"
+      label="Nombre"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+        <div *ngIf="form.controls.name.errors?.['required']">El nombre es requerido</div>
+      <div *ngIf="form.controls.name.errors?.['minlenght']">El nombre debe de tener mas de 4 caracteres</div>
+      </div>
+
+      <!--============= Email ==============-->
+
+      <app-custom-input 
+      autocomplete="email"
+      icon="mail-outline"
+      [control]="form.controls.email"
+      type="email"
+      label="Correo"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+      <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
+      </div>
+
+      <!--=========== Contraseña =============-->
+      
+      <app-custom-input 
+      icon="lock-closed-outline"
+      [control]="form.controls.password"
+      type="password"
+      label="Contraseña"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+        <div *ngIf="form.controls.password.errors?.['required']">La contraseña es requerida</div>
+      </div>
+
+      <!--============ Tipo de Usuario ===============-->
+      <app-custom-select
+      [control]="form.controls.tipo_u"
+      label="Selecciona tipo de Usuario"
+      [selectOptions]="['Administrador', 'Registrador']"
+      ></app-custom-select>
+      
+      <ion-button mode="ios" clase="submit" type="submit" color="medium" expand="block" [disabled]="form.invalid">
+        Registrarse
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </form>
+  </div>
+  
+  
+</ion-content>

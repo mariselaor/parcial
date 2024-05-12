@@ -1,0 +1,101 @@
+<app-header [isModal]="true" [title]="product ? 'Actualizar Constancia' : 'Agregar Constancia'"></app-header>
+<ion-content>
+    <form [formGroup]="form" class="ion-padding ion-text-center" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+  
+        <!--=========== Nombre =============-->
+    
+          <app-custom-input 
+          autocomplete="name"
+          [control]="form.controls.name"
+          type="text"
+          label="Nombre"
+          ></app-custom-input>
+    
+          
+          <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+            <div *ngIf="form.controls.name.errors?.['required']">El nombre es requerido</div>
+          <div *ngIf="form.controls.name.errors?.['minlenght']">El nombre debe de tener mas de 4 caracteres</div>
+          </div>
+          <!--===== Email ================-->
+          <app-custom-input 
+          autocomplete="email"
+          [control]="form.controls.email"
+          type="email"
+          label="Correo"
+          ></app-custom-input>
+    
+          <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+            <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+          <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
+          </div>
+    
+
+           <!--============== Telefono ==============-->
+    
+           <app-custom-input 
+           [control]="form.controls.telefono"
+           type="number"
+           label="Teléfono"
+           ></app-custom-input>
+     
+           <div class="validators" *ngIf="form.controls.telefono.errors && form.controls.telefono.touched">
+             <div *ngIf="form.controls.telefono.errors?.['required']">La cantidad es requerido</div>
+           <div *ngIf="form.controls.telefono.errors?.['min']">La cantidad minimo debe ser 0</div>
+           </div>
+
+            <!--============= Seleccion Constancia =============-->
+
+      <app-custom-select
+      [control]="form.controls.tipo"
+      label="Selecciona tipo de constancia"
+      [selectOptions]="['Constancia de Empleo Actual', 'Constancia de Empleo Anterior']"
+      ></app-custom-select>
+
+           <!--================= Descripción ======================-->
+    
+          <app-custom-input 
+          autocomplete="descripcion"
+          [control]="form.controls.descripcion"
+          type="text"
+          label="Descripción"
+          ></app-custom-input>
+    
+          <div class="validators" *ngIf="form.controls.descripcion.errors && form.controls.descripcion.touched">
+            <div *ngIf="form.controls.descripcion.errors?.['required']">La descripción es requerido</div>
+          <div *ngIf="form.controls.descripcion.errors?.['minlenght']">La descripción debe de tener mas de 15 caracteres</div>
+          </div>
+
+          <!--============== Cantidad =================-->
+    
+          <app-custom-input 
+          [control]="form.controls.cantidad"
+          type="number"
+          label="Cantidad"
+          ></app-custom-input>
+    
+          <div class="validators" *ngIf="form.controls.cantidad.errors && form.controls.cantidad.touched">
+            <div *ngIf="form.controls.cantidad.errors?.['required']">La cantidad es requerido</div>
+          <div *ngIf="form.controls.cantidad.errors?.['min']">La cantidad minimo debe ser 0</div>
+          </div>
+
+           <!--========== Seleccion de Estado de Solicitud ==============-->
+
+      <app-custom-select
+      [control]="form.controls.estado"
+      label="Selecciona el estado de solicitud"
+      [selectOptions]="['Activo', 'Inactivo']"
+      ></app-custom-select>
+    
+          <ion-button mode="ios" clase="ion-margin" type="submit" color="medium" [disabled]="form.invalid">
+            {{product ? 'Actualizar' : 'Agregar'}}
+            <ion-icon slot="end" name="checkmark-outline"></ion-icon>
+          </ion-button>
+        </form>
+    <div class="d-flex-center">
+     
+    </div>
+    
+    
+  </ion-content>
+  

@@ -1,0 +1,49 @@
+<app-header [showMenu]="true" title="Estado de Constancias"></app-header>
+<ion-content>
+
+    <!-- ========== SEGMENTACION ESTADO ACTIVO/INACTIVO ===============-->
+  <div class="segmentacion">
+    <ion-segment value="medium">
+      <ion-segment-button value="medium" (click)="filterByState('Activo')">
+        <ion-label>Activo</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment" (click)="filterByState('Inactivo')">
+        <ion-label>Inactivo</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+ <!-- ============ GENERAR PDF ============-->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="generatePDF()" color="medium">
+    <ion-icon name="document-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+  <!-- ============= PRODUCTOS ========-->
+  <ion-list *ngIf="!loading">
+    <ion-list-header>
+      <ion-label>LISTA DE CONSTANCIAS</ion-label>
+    </ion-list-header>
+    <ion-item-sliding class="product-item" *ngFor="let c of filteredConstancias | paginate: { itemsPerPage: 8, currentPage: page, id: 'products-pagination' }">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://us.123rf.com/450wm/fedeni0111/fedeni01111710/fedeni0111171000091/87356483-ilustraci%C3%B3n-de-vector-de-personas-persona-icono-cuadrado.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <div class="name">{{c.name}}</div>
+          <div class="data">
+            <strong>E-mail: </strong>{{c.email}} <br>
+            <strong>Teléfono: </strong> {{c.telefono}} <br>
+            <ion-badge [color]="c.estado === 'Activo' ? 'medium' : 'warning'">{{c.estado}}</ion-badge> <br>
+          
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <div class="d-flex-center junstify-content-center">
+    <pagination-controls (pageChange)="page = $event" id="products-pagination" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+  </div>
+</ion-content>
